@@ -6,6 +6,11 @@
 
 package geoCaching;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shimal
@@ -128,8 +133,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        new Home().setVisible(true);
-        this.setVisible(false);
+        
+        try {
+            DBConnect connection = new DBConnect();
+            connection.checkLogin(txtUsername.getText(), txtPassword.getText());
+            if (connection.checkLogin(txtUsername.getText(), txtPassword.getText()) == true) {
+                new Home().setVisible(true);
+            this.setVisible(false);
+            }            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Please check your Username/Password again");
+        }
                 
     }//GEN-LAST:event_btnLoginActionPerformed
 
