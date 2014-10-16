@@ -6,7 +6,9 @@
 
 package geoCaching;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 import javax.persistence.EntityManager;
 
 /**
@@ -36,14 +38,12 @@ public class Registration extends javax.swing.JFrame {
         geocacherstblList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : geocacherstblQuery.getResultList();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
-        txtID = new javax.swing.JTextField();
         txtGender = new javax.swing.JTextField();
         txtLocation = new javax.swing.JTextField();
         btnAddNewUser = new javax.swing.JButton();
@@ -56,8 +56,6 @@ public class Registration extends javax.swing.JFrame {
         jLabel1.setText("Registration");
 
         jLabel2.setText("Username");
-
-        jLabel3.setText("ID");
 
         jLabel4.setText("Gender");
 
@@ -86,23 +84,28 @@ public class Registration extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(205, 205, 205)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(332, 332, 332)
-                        .addComponent(btnAddNewUser)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5)
+                                        .addComponent(jLabel6))
+                                    .addGap(95, 95, 95)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(119, 119, 119)
+                                    .addComponent(btnAddNewUser)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel7))
+                                .addGap(95, 95, 95)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,11 +121,7 @@ public class Registration extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,14 +135,14 @@ public class Registration extends javax.swing.JFrame {
                     .addComponent(btnDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(btnAddNewUser)
-                .addGap(42, 42, 42))
+                .addGap(90, 90, 90))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewUserActionPerformed
-        register(txtID.getText(), btnDate.getDate(), txtUsername.getText(), txtPassword.getText(), txtLocation.getText(), txtGender.getText());
+        register(btnDate.getDate(), txtUsername.getText(), txtPassword.getText(), txtLocation.getText(), txtGender.getText());
     }//GEN-LAST:event_btnAddNewUserActionPerformed
 
     /**
@@ -181,8 +180,28 @@ public class Registration extends javax.swing.JFrame {
         });
     }
     
-    public void register(String ID, Date date, String username, String password, String location, String gender) {
-        Geocacherstbl newUser = new Geocacherstbl(ID, date, username, password, location, gender);
+    public String IDgenerator(String username, Date date, String gender) { // Algorithm to generate cacherID
+        
+        String firstLetter = String.valueOf(username.charAt(0)); // Getting first letter of cacherID from username
+        
+        Calendar cal = Calendar.getInstance(); // Getting next 4 numbers of cacherID from D.O.B
+        cal.setTime(date); // Setting calendar to "date"
+        int Year = cal.get(Calendar.YEAR); // Getting Year
+        
+        String tempInt = Integer.toString(Year); // Converting int "Year" to String to dlete first to digits
+        int next2Digits = Integer.parseInt(Integer.toString(Year).substring(0, 2)); // Deleting first 2 digits from int "Year"
+        
+        Random num = new Random(3); // Genearting random 3 digit number
+        int last3Digits = num.nextInt(900) + 100;
+
+                
+        String ID = firstLetter + next2Digits + last3Digits + "";
+        return ID;
+    }
+    
+    public void register(Date date, String username, String password, String location, String gender) {
+        
+        Geocacherstbl newUser = new Geocacherstbl(IDgenerator(username, date, gender), date, username, password, location, gender);
         GeoCachingPUEntityManager.getTransaction().begin(); // Using persistance unit to begin transaction
         GeoCachingPUEntityManager.persist(newUser); // Updating database with new user
         GeoCachingPUEntityManager.getTransaction().commit(); // Commiting the changes to the database     
@@ -197,13 +216,11 @@ public class Registration extends javax.swing.JFrame {
     private javax.persistence.Query geocacherstblQuery;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtGender;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;

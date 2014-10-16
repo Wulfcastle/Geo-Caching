@@ -57,26 +57,37 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="95" pref="95" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnDate" min="-2" pref="206" max="-2" attributes="0"/>
+                                      <Component id="txtGender" min="-2" pref="206" max="-2" attributes="0"/>
+                                      <Component id="txtLocation" min="-2" pref="206" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                                  <Component id="btnAddNewUser" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="95" pref="95" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtUsername" min="-2" pref="206" max="-2" attributes="0"/>
+                                  <Component id="txtPassword" min="-2" pref="206" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace min="95" pref="95" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnDate" min="-2" pref="206" max="-2" attributes="0"/>
-                          <Component id="txtUsername" min="-2" pref="206" max="-2" attributes="0"/>
-                          <Component id="txtPassword" min="-2" pref="206" max="-2" attributes="0"/>
-                          <Component id="txtID" min="-2" pref="206" max="-2" attributes="0"/>
-                          <Component id="txtGender" min="-2" pref="206" max="-2" attributes="0"/>
-                          <Component id="txtLocation" min="-2" pref="206" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="332" max="-2" attributes="0"/>
-                      <Component id="btnAddNewUser" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="215" max="32767" attributes="0"/>
@@ -98,12 +109,7 @@
                   <Component id="txtPassword" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtID" min="-2" pref="33" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <Component id="txtGender" min="-2" pref="33" max="-2" attributes="0"/>
@@ -120,7 +126,7 @@
               </Group>
               <EmptySpace pref="116" max="32767" attributes="0"/>
               <Component id="btnAddNewUser" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -138,11 +144,6 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Username"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ID"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -168,8 +169,6 @@
     <Component class="javax.swing.JTextField" name="txtUsername">
     </Component>
     <Component class="javax.swing.JTextField" name="txtPassword">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtID">
     </Component>
     <Component class="javax.swing.JTextField" name="txtGender">
     </Component>
