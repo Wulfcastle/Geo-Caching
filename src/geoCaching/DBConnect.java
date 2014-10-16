@@ -21,8 +21,8 @@ public class DBConnect {
     
     String host = "jdbc:derby://localhost:1527/GeoCachingDB";
 
-    String UserName = "Geocaching";
-    String Password= "admin";
+    String UserName = "geoCaching";
+    String Password= "123456";
     Connection connect;
     
     public Connection databaseConnect() { 
@@ -77,7 +77,7 @@ public class DBConnect {
             
         }
         
-        if (username == cacherUsername && password == cacherPassword) {
+        if (username.equals(cacherUsername) && password.equals(cacherPassword)) {
             flag = true;
         } else {
             JOptionPane.showMessageDialog(null, "Please re-enter your password"); 

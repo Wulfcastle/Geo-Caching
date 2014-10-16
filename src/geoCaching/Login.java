@@ -140,6 +140,7 @@ public class Login extends javax.swing.JFrame {
             if (connection.checkLogin(txtUsername.getText(), txtPassword.getText()) == true) {
                 new Home().setVisible(true);
             this.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Welcome");
             }            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Please check your Username/Password again");
