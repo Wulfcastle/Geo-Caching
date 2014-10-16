@@ -158,6 +158,8 @@ public class Registration extends javax.swing.JFrame {
 
     private void btnAddNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewUserActionPerformed
         register(btnDate.getDate(), txtUsername.getText(), txtPassword.getText(), txtLocation.getText(), txtGender.getText());
+        Query query = new Query();
+        query.setCurrentUser(txtUsername.getText()); // Setting current user. 
         new Home().setVisible(true); 
         this.setVisible(false);
     }//GEN-LAST:event_btnAddNewUserActionPerformed
