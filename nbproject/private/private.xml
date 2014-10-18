@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/Profile.java</file>
             <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/Registration.java</file>
-            <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/Geocacherstbl.java</file>
+            <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/FindGeocache.java</file>
+            <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/Cachingobjecttbl.java</file>
             <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/Login.java</file>
+            <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/Queries.java</file>
             <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/DBConnect.java</file>
             <file>file:/C:/Users/Shimal/Documents/NetBeansProjects/GeoCaching/src/geoCaching/Home.java</file>
         </group>
