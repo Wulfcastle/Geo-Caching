@@ -35,75 +35,73 @@ public class FindGeocache extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         btnCountry = new javax.swing.JButton();
+        btnCountry.setOpaque(false);
+        btnCountry.setContentAreaFilled(false);
+        btnCountry.setBorderPainted(false);
         btnCity = new javax.swing.JButton();
+        btnCity.setOpaque(false);
+        btnCity.setContentAreaFilled(false);
+        btnCity.setBorderPainted(false);
         btnArea = new javax.swing.JButton();
+        btnArea.setOpaque(false);
+        btnArea.setContentAreaFilled(false);
+        btnArea.setBorderPainted(false);
+        btnBack = new javax.swing.JButton();
+        btnBack.setOpaque(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setBorderPainted(false);
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 605, 748));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 605, 748));
+        setMaximumSize(new java.awt.Dimension(605, 748));
+        setMinimumSize(new java.awt.Dimension(605, 748));
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Find Geocaches");
-
-        btnCountry.setText("In Your Country");
+        btnCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_country.png"))); // NOI18N
         btnCountry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCountryActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCountry);
+        btnCountry.setBounds(130, 120, 320, 160);
 
-        btnCity.setText("In Your City");
+        btnCity.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_city.png"))); // NOI18N
         btnCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCityActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCity);
+        btnCity.setBounds(140, 310, 310, 180);
 
-        btnArea.setText("In Your Area");
+        btnArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_area.png"))); // NOI18N
         btnArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAreaActionPerformed(evt);
             }
         });
+        getContentPane().add(btnArea);
+        btnArea.setBounds(150, 510, 300, 150);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnArea, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(145, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(73, 73, 73)
-                .addComponent(btnCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnArea, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(290, Short.MAX_VALUE))
-        );
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_back.png"))); // NOI18N
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBack);
+        btnBack.setBounds(20, 30, 120, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/find_background.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 600, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountryActionPerformed
-        Queries query = new Queries();
-        query.findGeocachers(query.getCountry(), query.findUserLocation("Shimal", query.getCacherCountry()));
-    }//GEN-LAST:event_btnCountryActionPerformed
 
     private void btnCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityActionPerformed
         Queries query = new Queries();
@@ -114,6 +112,16 @@ public class FindGeocache extends javax.swing.JFrame {
         Queries query = new Queries();
         query.findGeocachers(query.getArea(), query.findUserLocation("Shimal", query.getCacherArea()));
     }//GEN-LAST:event_btnAreaActionPerformed
+
+    private void btnCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountryActionPerformed
+        Queries query = new Queries();
+        query.findGeocachers(query.getCountry(), query.findUserLocation("Shimal", query.getCacherCountry()));
+    }//GEN-LAST:event_btnCountryActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        new Home().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,6 +164,7 @@ public class FindGeocache extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnArea;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCity;
     private javax.swing.JButton btnCountry;
     private javax.swing.JLabel jLabel1;
