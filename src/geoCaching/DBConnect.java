@@ -20,7 +20,6 @@ import javax.swing.JOptionPane;
 public class DBConnect {
     
     String host = "jdbc:derby://localhost:1527/GeoCachingDB";
-
     String UserName = "geoCaching";
     String Password= "123456";
     Connection connect;

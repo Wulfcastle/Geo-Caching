@@ -94,7 +94,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(btnRegister);
         btnRegister.setBounds(260, 370, 111, 35);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Shimal\\Documents\\NetBeansProjects\\GeoCaching\\img\\login_background.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login_background.png"))); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, -10, 500, 570);
 

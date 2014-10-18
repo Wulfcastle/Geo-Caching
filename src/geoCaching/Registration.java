@@ -111,7 +111,7 @@ public class Registration extends javax.swing.JFrame {
         getContentPane().add(txtCountry);
         txtCountry.setBounds(330, 360, 206, 33);
 
-        btnAddNewUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\Shimal\\Documents\\NetBeansProjects\\GeoCaching\\img\\buttons\\btn_register.png")); // NOI18N
+        btnAddNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_register.png"))); // NOI18N
         btnAddNewUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewUserActionPerformed(evt);
@@ -124,7 +124,7 @@ public class Registration extends javax.swing.JFrame {
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Shimal\\Documents\\NetBeansProjects\\GeoCaching\\img\\icons\\back.png")); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_back.png"))); // NOI18N
         btnBack.setToolTipText("");
         btnBack.setDoubleBuffered(true);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +160,7 @@ public class Registration extends javax.swing.JFrame {
         getContentPane().add(dropdownGender);
         dropdownGender.setBounds(330, 300, 206, 40);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Shimal\\Documents\\NetBeansProjects\\GeoCaching\\img\\register_background.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/register_background.png"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, -90, 760, 1000);
 
@@ -250,7 +250,7 @@ public class Registration extends javax.swing.JFrame {
     }
     
     public String IDgenerator(String username, Date date, String gender) { // Algorithm to generate cacherID  
-        
+
         String firstLetter = String.valueOf(username.charAt(0)); // Getting first letter of cacherID from username        
         Calendar cal = Calendar.getInstance(); // Getting next 4 numbers of cacherID from D.O.B
         cal.setTime(date); // Setting calendar to "date"
@@ -258,11 +258,11 @@ public class Registration extends javax.swing.JFrame {
         String tempInt = Integer.toString(Year); // Converting int "Year" to String to dlete first to digits
         int next2Digits = Integer.parseInt(Integer.toString(Year).substring(0, 2)); // Deleting first 2 digits from int "Year"        
         Random num = new Random(3); // Genearting random 3 digit number
-        int last3Digits = num.nextInt(900) + 100;                
+        int last3Digits = num.nextInt(900) + 100;
         String ID = firstLetter + next2Digits + last3Digits + "";
         regID = ID;
         return ID;
-        
+
     }
     
     public void register(Date date, String username, String password, String country, String city, String area, String gender) {

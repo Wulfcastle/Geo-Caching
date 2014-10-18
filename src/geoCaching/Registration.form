@@ -166,7 +166,7 @@
     <Component class="javax.swing.JButton" name="btnAddNewUser">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Shimal\Documents\NetBeansProjects\GeoCaching\img\buttons\btn_register.png"/>
+          <Image iconType="3" name="/img/buttons/btn_register.png"/>
         </Property>
       </Properties>
       <Events>
@@ -197,7 +197,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Shimal\Documents\NetBeansProjects\GeoCaching\img\icons\back.png"/>
+          <Image iconType="3" name="/img/buttons/btn_back.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="doubleBuffered" type="boolean" value="true"/>
@@ -283,7 +283,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Shimal\Documents\NetBeansProjects\GeoCaching\img\register_background.png"/>
+          <Image iconType="3" name="/img/register_background.png"/>
         </Property>
       </Properties>
       <Constraints>

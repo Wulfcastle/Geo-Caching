@@ -34,13 +34,22 @@ public class Home extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         btnLogout = new javax.swing.JButton();
+        btnLogout.setOpaque(false);
+        btnLogout.setContentAreaFilled(false);
+        btnLogout.setBorderPainted(false);
         btnProfile = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txaWelcome = new javax.swing.JTextArea();
-        btnWelcome = new javax.swing.JButton();
+        btnProfile.setOpaque(false);
+        btnProfile.setContentAreaFilled(false);
+        btnProfile.setBorderPainted(false);
         btnAddGeocache = new javax.swing.JButton();
+        btnAddGeocache.setOpaque(false);
+        btnAddGeocache.setContentAreaFilled(false);
+        btnAddGeocache.setBorderPainted(false);
         btnFind = new javax.swing.JButton();
+        btnFind.setOpaque(false);
+        btnFind.setContentAreaFilled(false);
+        btnFind.setBorderPainted(false);
+        jLabel2 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -49,94 +58,51 @@ public class Home extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 1047, 752));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 1047, 752));
+        setMaximumSize(new java.awt.Dimension(1047, 752));
+        setMinimumSize(new java.awt.Dimension(1047, 752));
+        getContentPane().setLayout(null);
 
-        btnLogout.setText("Logout");
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_logout.png"))); // NOI18N
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
+        getContentPane().add(btnLogout);
+        btnLogout.setBounds(40, 563, 150, 60);
 
-        btnProfile.setText("Edit Profile");
+        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_edit_profile.png"))); // NOI18N
         btnProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProfileActionPerformed(evt);
             }
         });
+        getContentPane().add(btnProfile);
+        btnProfile.setBounds(780, 560, 160, 70);
 
-        jLabel1.setText("Home");
-
-        txaWelcome.setColumns(20);
-        txaWelcome.setRows(5);
-        jScrollPane1.setViewportView(txaWelcome);
-
-        btnWelcome.setText("Welcome Message");
-        btnWelcome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnWelcomeActionPerformed(evt);
-            }
-        });
-
-        btnAddGeocache.setText("Add New Geocache");
+        btnAddGeocache.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_add.png"))); // NOI18N
         btnAddGeocache.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddGeocacheActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAddGeocache);
+        btnAddGeocache.setBounds(270, 560, 210, 70);
 
-        btnFind.setText("Find Geocache");
+        btnFind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_search.png"))); // NOI18N
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFindActionPerformed(evt);
             }
         });
+        getContentPane().add(btnFind);
+        btnFind.setBounds(520, 560, 180, 70);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(btnLogout)
-                        .addGap(103, 103, 103)
-                        .addComponent(btnAddGeocache)
-                        .addGap(99, 99, 99)
-                        .addComponent(btnFind)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
-                        .addComponent(btnProfile)))
-                .addGap(31, 31, 31))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(349, 349, 349)
-                        .addComponent(btnWelcome))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(351, 351, 351)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134)
-                .addComponent(btnWelcome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogout)
-                    .addComponent(btnProfile)
-                    .addComponent(btnAddGeocache)
-                    .addComponent(btnFind))
-                .addGap(19, 19, 19))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home_background.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1032, 712);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,12 +116,6 @@ public class Home extends javax.swing.JFrame {
         new Profile().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnProfileActionPerformed
-
-    private void btnWelcomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWelcomeActionPerformed
-        Geocacherstbl currentttser = new Geocacherstbl();
-        currentttser = GeoCachingPUEntityManager.find(Geocacherstbl.class, ID);
-        txaWelcome.append("Hello :" + currentttser.getCacherusername());
-    }//GEN-LAST:event_btnWelcomeActionPerformed
 
     private void btnAddGeocacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddGeocacheActionPerformed
         new AddGeocache().setVisible(true);
@@ -215,12 +175,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnProfile;
-    private javax.swing.JButton btnWelcome;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txaWelcome;
     // End of variables declaration//GEN-END:variables
 }
