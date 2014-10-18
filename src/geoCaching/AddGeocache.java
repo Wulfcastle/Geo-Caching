@@ -226,7 +226,7 @@ public class AddGeocache extends javax.swing.JFrame {
         
         String first3Letters = country.substring(0, 3);
         Random num = new Random(3); // Genearting random 3 digit number
-        int last3Digits = num.nextInt(900) + 100;                
+        int last3Digits = num.nextInt(899) + 100;                
         String ID = first3Letters + last3Digits;
         regID = ID;
         return ID;

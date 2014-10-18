@@ -102,15 +102,17 @@ public class FindGeocache extends javax.swing.JFrame {
 
     private void btnCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountryActionPerformed
         Queries query = new Queries();
-        query.findGeocachers(query.getCountry(), query.findUserCountry("Shimal"));
+        query.findGeocachers(query.getCountry(), query.findUserLocation("Shimal", query.getCacherCountry()));
     }//GEN-LAST:event_btnCountryActionPerformed
 
     private void btnCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityActionPerformed
-        // TODO add your handling code here:
+        Queries query = new Queries();
+        query.findGeocachers(query.getCity(), query.findUserLocation("Shimal", query.getCacherCity()));
     }//GEN-LAST:event_btnCityActionPerformed
 
     private void btnAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaActionPerformed
-        // TODO add your handling code here:
+        Queries query = new Queries();
+        query.findGeocachers(query.getArea(), query.findUserLocation("Shimal", query.getCacherArea()));
     }//GEN-LAST:event_btnAreaActionPerformed
 
     /**
