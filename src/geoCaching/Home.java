@@ -39,6 +39,8 @@ public class Home extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txaWelcome = new javax.swing.JTextArea();
         btnWelcome = new javax.swing.JButton();
+        btnAddGeocache = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -75,6 +77,15 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btnAddGeocache.setText("Add New Geocache");
+        btnAddGeocache.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddGeocacheActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Find Geocache");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -87,32 +98,38 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(btnLogout)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 581, Short.MAX_VALUE)
+                        .addGap(103, 103, 103)
+                        .addComponent(btnAddGeocache)
+                        .addGap(99, 99, 99)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                         .addComponent(btnProfile)))
                 .addGap(31, 31, 31))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(374, 374, 374)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(349, 349, 349)
-                        .addComponent(btnWelcome)))
+                        .addComponent(btnWelcome))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(351, 351, 351)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addGap(16, 16, 16)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(134, 134, 134)
                 .addComponent(btnWelcome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogout)
-                    .addComponent(btnProfile))
+                    .addComponent(btnProfile)
+                    .addComponent(btnAddGeocache)
+                    .addComponent(jButton2))
                 .addGap(19, 19, 19))
         );
 
@@ -134,6 +151,11 @@ public class Home extends javax.swing.JFrame {
         currentttser = GeoCachingPUEntityManager.find(Geocacherstbl.class, ID);
         txaWelcome.append("Hello :" + currentttser.getCacherusername());
     }//GEN-LAST:event_btnWelcomeActionPerformed
+
+    private void btnAddGeocacheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddGeocacheActionPerformed
+        new AddGeocache().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAddGeocacheActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,9 +201,11 @@ public class Home extends javax.swing.JFrame {
     private javax.persistence.Query geocacherstblQuery;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddGeocache;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnWelcome;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;

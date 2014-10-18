@@ -6,6 +6,8 @@
 
 package geoCaching;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -14,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -33,6 +36,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cachingobjecttbl.findByObjarea", query = "SELECT c FROM Cachingobjecttbl c WHERE c.objarea = :objarea"),
     @NamedQuery(name = "Cachingobjecttbl.findByObjdescription", query = "SELECT c FROM Cachingobjecttbl c WHERE c.objdescription = :objdescription")})
 public class Cachingobjecttbl implements Serializable {
+    @Transient
+    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -62,8 +67,10 @@ public class Cachingobjecttbl implements Serializable {
         this.objid = objid;
     }
 
-    public Cachingobjecttbl(String objid, String objcountry, String objcity, String objarea, String objdescription) {
+    public Cachingobjecttbl(String objid, String objlatitude, String objlongitude, String objcountry, String objcity, String objarea, String objdescription) {
         this.objid = objid;
+        this.objlatitude = objlatitude;
+        this.objlongitude = objlongitude;
         this.objcountry = objcountry;
         this.objcity = objcity;
         this.objarea = objarea;
@@ -75,7 +82,9 @@ public class Cachingobjecttbl implements Serializable {
     }
 
     public void setObjid(String objid) {
+        String oldObjid = this.objid;
         this.objid = objid;
+        changeSupport.firePropertyChange("objid", oldObjid, objid);
     }
 
     public String getObjlatitude() {
@@ -83,7 +92,9 @@ public class Cachingobjecttbl implements Serializable {
     }
 
     public void setObjlatitude(String objlatitude) {
+        String oldObjlatitude = this.objlatitude;
         this.objlatitude = objlatitude;
+        changeSupport.firePropertyChange("objlatitude", oldObjlatitude, objlatitude);
     }
 
     public String getObjlongitude() {
@@ -91,7 +102,9 @@ public class Cachingobjecttbl implements Serializable {
     }
 
     public void setObjlongitude(String objlongitude) {
+        String oldObjlongitude = this.objlongitude;
         this.objlongitude = objlongitude;
+        changeSupport.firePropertyChange("objlongitude", oldObjlongitude, objlongitude);
     }
 
     public String getObjcountry() {
@@ -99,7 +112,9 @@ public class Cachingobjecttbl implements Serializable {
     }
 
     public void setObjcountry(String objcountry) {
+        String oldObjcountry = this.objcountry;
         this.objcountry = objcountry;
+        changeSupport.firePropertyChange("objcountry", oldObjcountry, objcountry);
     }
 
     public String getObjcity() {
@@ -107,7 +122,9 @@ public class Cachingobjecttbl implements Serializable {
     }
 
     public void setObjcity(String objcity) {
+        String oldObjcity = this.objcity;
         this.objcity = objcity;
+        changeSupport.firePropertyChange("objcity", oldObjcity, objcity);
     }
 
     public String getObjarea() {
@@ -115,7 +132,9 @@ public class Cachingobjecttbl implements Serializable {
     }
 
     public void setObjarea(String objarea) {
+        String oldObjarea = this.objarea;
         this.objarea = objarea;
+        changeSupport.firePropertyChange("objarea", oldObjarea, objarea);
     }
 
     public String getObjdescription() {
@@ -123,7 +142,9 @@ public class Cachingobjecttbl implements Serializable {
     }
 
     public void setObjdescription(String objdescription) {
+        String oldObjdescription = this.objdescription;
         this.objdescription = objdescription;
+        changeSupport.firePropertyChange("objdescription", oldObjdescription, objdescription);
     }
 
     @Override
@@ -149,6 +170,14 @@ public class Cachingobjecttbl implements Serializable {
     @Override
     public String toString() {
         return "geoCaching.Cachingobjecttbl[ objid=" + objid + " ]";
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.removePropertyChangeListener(listener);
     }
     
 }
