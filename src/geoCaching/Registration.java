@@ -59,7 +59,6 @@ public class Registration extends javax.swing.JFrame {
         txtCity = new javax.swing.JTextField();
         txtArea = new javax.swing.JTextField();
         dropdownGender = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,13 +98,6 @@ public class Registration extends javax.swing.JFrame {
         dropdownGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropdownGenderActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Test Gender");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -151,9 +143,7 @@ public class Registration extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addGap(95, 95, 95)
                             .addComponent(btnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(115, 115, 115))
+                .addGap(115, 212, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,15 +183,9 @@ public class Registration extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
                     .addComponent(btnDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(btnAddNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(47, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(81, 81, 81))))
+                .addGap(72, 72, 72)
+                .addComponent(btnAddNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -223,11 +207,6 @@ public class Registration extends javax.swing.JFrame {
     private void dropdownGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropdownGenderActionPerformed
         
     }//GEN-LAST:event_dropdownGenderActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       JOptionPane.showMessageDialog(null, getGender(dropdownGender));
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,7 +296,6 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JComboBox dropdownGender;
     private java.util.List<geoCaching.Geocacherstbl> geocacherstblList;
     private javax.persistence.Query geocacherstblQuery;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
