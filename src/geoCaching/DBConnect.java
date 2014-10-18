@@ -34,31 +34,6 @@ public class DBConnect {
     return connect;
     }
     
-    
-    public String getCacherID() throws SQLException {
-         Query query = new Query();
-        String currentUser = query.getCurrentUser(); // Getting current user. 
-        String DBquery = "select CACHERID from GEOCACHERSTBL where CACHERUSERNAME = '" + currentUser + "'";        
-        String cacherID = null;
-        Statement stmt = null;
-        
-        try {
-        stmt = databaseConnect().createStatement();
-        ResultSet rs = stmt.executeQuery(DBquery);
-        
-        while (rs.next()) {
-            cacherID = rs.getString("CACHERID");
-            
-        }
-    } catch (SQLException e ) {
-       JOptionPane.showMessageDialog(null, e); 
-       
-    } finally {
-        if (stmt != null) { stmt.close(); }
-    }
-    return cacherID;
-}
-    
     public Boolean checkLogin(String username, String password) throws SQLException {
         Boolean flag = false;
         String DBquery = "select * from GEOCACHERSTBL where CACHERUSERNAME = '" + username + "'";    

@@ -6,9 +6,12 @@
 
 package geoCaching;
 
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 /**
@@ -17,6 +20,7 @@ import javax.persistence.EntityManager;
  */
 public class Registration extends javax.swing.JFrame {
 
+    public String regID = null; // Storing the ID of the latest registrant 
     /**
      * Creates new form Registration
      */
@@ -157,9 +161,9 @@ public class Registration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewUserActionPerformed
-        register(btnDate.getDate(), txtUsername.getText(), txtPassword.getText(), txtLocation.getText(), txtGender.getText());
-        Query query = new Query();
-        query.setCurrentUser(txtUsername.getText()); // Setting current user. 
+        register(btnDate.getDate(), txtUsername.getText(), txtPassword.getText(), txtLocation.getText(), txtGender.getText());     
+                
+ 
         new Home().setVisible(true); 
         this.setVisible(false);
     }//GEN-LAST:event_btnAddNewUserActionPerformed
@@ -204,21 +208,22 @@ public class Registration extends javax.swing.JFrame {
         });
     }
     
-    public String IDgenerator(String username, Date date, String gender) { // Algorithm to generate cacherID        
-        String firstLetter = String.valueOf(username.charAt(0)); // Getting first letter of cacherID from username
+    
+    
+    public String IDgenerator(String username, Date date, String gender) { // Algorithm to generate cacherID  
         
+        String firstLetter = String.valueOf(username.charAt(0)); // Getting first letter of cacherID from username        
         Calendar cal = Calendar.getInstance(); // Getting next 4 numbers of cacherID from D.O.B
         cal.setTime(date); // Setting calendar to "date"
-        int Year = cal.get(Calendar.YEAR); // Getting Year
-        
+        int Year = cal.get(Calendar.YEAR); // Getting Year        
         String tempInt = Integer.toString(Year); // Converting int "Year" to String to dlete first to digits
-        int next2Digits = Integer.parseInt(Integer.toString(Year).substring(0, 2)); // Deleting first 2 digits from int "Year"
-        
+        int next2Digits = Integer.parseInt(Integer.toString(Year).substring(0, 2)); // Deleting first 2 digits from int "Year"        
         Random num = new Random(3); // Genearting random 3 digit number
-        int last3Digits = num.nextInt(900) + 100;
-                
+        int last3Digits = num.nextInt(900) + 100;                
         String ID = firstLetter + next2Digits + last3Digits + "";
+        regID = ID;
         return ID;
+        
     }
     
     public void register(Date date, String username, String password, String location, String gender) {

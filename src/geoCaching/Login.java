@@ -137,10 +137,9 @@ public class Login extends javax.swing.JFrame {
         try {
             DBConnect connection = new DBConnect();
             connection.checkLogin(txtUsername.getText(), txtPassword.getText());
-            if (connection.checkLogin(txtUsername.getText(), txtPassword.getText()) == true) {
-                new Home().setVisible(true);
-            this.setVisible(false);
-            JOptionPane.showMessageDialog(null, "Welcome");
+            if (connection.checkLogin(txtUsername.getText(), txtPassword.getText()) == true) {            
+              new Home().setVisible(true);
+                 this.setVisible(false);            
             }            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Please check your Username/Password again");
