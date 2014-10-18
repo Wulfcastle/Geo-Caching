@@ -244,7 +244,7 @@ public class Profile extends javax.swing.JFrame {
         txtUsername.setText(currentttser.getCacherusername());
         txtPassword.setText(currentttser.getCacherpassword());
         txtGender.setText(currentttser.getCachergender());
-        txtLocation.setText(currentttser.getCacherlocation());
+
     }//GEN-LAST:event_btnPopulateActionPerformed
 
 

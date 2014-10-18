@@ -6,6 +6,13 @@
 
 package geoCaching;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shimal
@@ -28,21 +35,82 @@ public class FindGeocache extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnCountry = new javax.swing.JButton();
+        btnCity = new javax.swing.JButton();
+        btnArea = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Find Geocaches");
+
+        btnCountry.setText("In Your Country");
+        btnCountry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCountryActionPerformed(evt);
+            }
+        });
+
+        btnCity.setText("In Your City");
+        btnCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCityActionPerformed(evt);
+            }
+        });
+
+        btnArea.setText("In Your Area");
+        btnArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAreaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnArea, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(73, 73, 73)
+                .addComponent(btnCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(btnArea, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCountryActionPerformed
+
+    private void btnCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCityActionPerformed
+
+    private void btnAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAreaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,7 +146,45 @@ public class FindGeocache extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    public String findUserLocation(String user) {
+        
+         String DBquery = "select CACHERLOCATION from GEOCACHERSTBL where CACHERUSERNAME = '" + user + "'";
+         Statement stmt = null;
+        String location = null;
+        DBConnect connection = new DBConnect();
+                
+        
+                try {
+                stmt = connection.databaseConnect().createStatement();
+                ResultSet rs = stmt.executeQuery(DBquery);
+
+                while (rs.next()) {
+                    location= rs.getString("CACHERLOCATION");
+
+
+                }      
+                  } catch (SQLException e ) {
+                       JOptionPane.showMessageDialog(null, "Please re-enter your username"); 
+
+                    } finally {
+                        if (stmt != null) { try {
+                            stmt.close();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(FindGeocache.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                }
+                    }
+        
+        return location;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnArea;
+    private javax.swing.JButton btnCity;
+    private javax.swing.JButton btnCountry;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

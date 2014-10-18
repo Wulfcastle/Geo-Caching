@@ -6,8 +6,6 @@
 
 package geoCaching;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -19,7 +17,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -35,12 +32,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Geocacherstbl.findByCacherdob", query = "SELECT g FROM Geocacherstbl g WHERE g.cacherdob = :cacherdob"),
     @NamedQuery(name = "Geocacherstbl.findByCacherusername", query = "SELECT g FROM Geocacherstbl g WHERE g.cacherusername = :cacherusername"),
     @NamedQuery(name = "Geocacherstbl.findByCacherpassword", query = "SELECT g FROM Geocacherstbl g WHERE g.cacherpassword = :cacherpassword"),
-    @NamedQuery(name = "Geocacherstbl.findByCacherlocation", query = "SELECT g FROM Geocacherstbl g WHERE g.cacherlocation = :cacherlocation"),
+    @NamedQuery(name = "Geocacherstbl.findByCachercountry", query = "SELECT g FROM Geocacherstbl g WHERE g.cachercountry = :cachercountry"),
+    @NamedQuery(name = "Geocacherstbl.findByCachercity", query = "SELECT g FROM Geocacherstbl g WHERE g.cachercity = :cachercity"),
+    @NamedQuery(name = "Geocacherstbl.findByCacherarea", query = "SELECT g FROM Geocacherstbl g WHERE g.cacherarea = :cacherarea"),
     @NamedQuery(name = "Geocacherstbl.findByCachergender", query = "SELECT g FROM Geocacherstbl g WHERE g.cachergender = :cachergender"),
     @NamedQuery(name = "Geocacherstbl.findByCacherrank", query = "SELECT g FROM Geocacherstbl g WHERE g.cacherrank = :cacherrank")})
 public class Geocacherstbl implements Serializable {
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -57,8 +54,14 @@ public class Geocacherstbl implements Serializable {
     @Column(name = "CACHERPASSWORD")
     private String cacherpassword;
     @Basic(optional = false)
-    @Column(name = "CACHERLOCATION")
-    private String cacherlocation;
+    @Column(name = "CACHERCOUNTRY")
+    private String cachercountry;
+    @Basic(optional = false)
+    @Column(name = "CACHERCITY")
+    private String cachercity;
+    @Basic(optional = false)
+    @Column(name = "CACHERAREA")
+    private String cacherarea;
     @Basic(optional = false)
     @Column(name = "CACHERGENDER")
     private String cachergender;
@@ -72,12 +75,14 @@ public class Geocacherstbl implements Serializable {
         this.cacherid = cacherid;
     }
 
-    public Geocacherstbl(String cacherid, Date cacherdob, String cacherusername, String cacherpassword, String cacherlocation, String cachergender) {
+    public Geocacherstbl(String cacherid, Date cacherdob, String cacherusername, String cacherpassword, String cachercountry, String cachercity, String cacherarea, String cachergender) {
         this.cacherid = cacherid;
         this.cacherdob = cacherdob;
         this.cacherusername = cacherusername;
         this.cacherpassword = cacherpassword;
-        this.cacherlocation = cacherlocation;
+        this.cachercountry = cachercountry;
+        this.cachercity = cachercity;
+        this.cacherarea = cacherarea;
         this.cachergender = cachergender;
     }
 
@@ -86,9 +91,7 @@ public class Geocacherstbl implements Serializable {
     }
 
     public void setCacherid(String cacherid) {
-        String oldCacherid = this.cacherid;
         this.cacherid = cacherid;
-        changeSupport.firePropertyChange("cacherid", oldCacherid, cacherid);
     }
 
     public Date getCacherdob() {
@@ -96,9 +99,7 @@ public class Geocacherstbl implements Serializable {
     }
 
     public void setCacherdob(Date cacherdob) {
-        Date oldCacherdob = this.cacherdob;
         this.cacherdob = cacherdob;
-        changeSupport.firePropertyChange("cacherdob", oldCacherdob, cacherdob);
     }
 
     public String getCacherusername() {
@@ -106,9 +107,7 @@ public class Geocacherstbl implements Serializable {
     }
 
     public void setCacherusername(String cacherusername) {
-        String oldCacherusername = this.cacherusername;
         this.cacherusername = cacherusername;
-        changeSupport.firePropertyChange("cacherusername", oldCacherusername, cacherusername);
     }
 
     public String getCacherpassword() {
@@ -116,19 +115,31 @@ public class Geocacherstbl implements Serializable {
     }
 
     public void setCacherpassword(String cacherpassword) {
-        String oldCacherpassword = this.cacherpassword;
         this.cacherpassword = cacherpassword;
-        changeSupport.firePropertyChange("cacherpassword", oldCacherpassword, cacherpassword);
     }
 
-    public String getCacherlocation() {
-        return cacherlocation;
+    public String getCachercountry() {
+        return cachercountry;
     }
 
-    public void setCacherlocation(String cacherlocation) {
-        String oldCacherlocation = this.cacherlocation;
-        this.cacherlocation = cacherlocation;
-        changeSupport.firePropertyChange("cacherlocation", oldCacherlocation, cacherlocation);
+    public void setCachercountry(String cachercountry) {
+        this.cachercountry = cachercountry;
+    }
+
+    public String getCachercity() {
+        return cachercity;
+    }
+
+    public void setCachercity(String cachercity) {
+        this.cachercity = cachercity;
+    }
+
+    public String getCacherarea() {
+        return cacherarea;
+    }
+
+    public void setCacherarea(String cacherarea) {
+        this.cacherarea = cacherarea;
     }
 
     public String getCachergender() {
@@ -136,9 +147,7 @@ public class Geocacherstbl implements Serializable {
     }
 
     public void setCachergender(String cachergender) {
-        String oldCachergender = this.cachergender;
         this.cachergender = cachergender;
-        changeSupport.firePropertyChange("cachergender", oldCachergender, cachergender);
     }
 
     public Integer getCacherrank() {
@@ -146,9 +155,7 @@ public class Geocacherstbl implements Serializable {
     }
 
     public void setCacherrank(Integer cacherrank) {
-        Integer oldCacherrank = this.cacherrank;
         this.cacherrank = cacherrank;
-        changeSupport.firePropertyChange("cacherrank", oldCacherrank, cacherrank);
     }
 
     @Override
@@ -174,14 +181,6 @@ public class Geocacherstbl implements Serializable {
     @Override
     public String toString() {
         return "geoCaching.Geocacherstbl[ cacherid=" + cacherid + " ]";
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
     }
     
 }
