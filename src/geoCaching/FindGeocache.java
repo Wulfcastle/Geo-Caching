@@ -101,7 +101,8 @@ public class FindGeocache extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountryActionPerformed
-        // TODO add your handling code here:
+        Queries query = new Queries();
+        query.findGeocachers(query.getCountry(), query.findUserCountry("Shimal"));
     }//GEN-LAST:event_btnCountryActionPerformed
 
     private void btnCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityActionPerformed
@@ -148,37 +149,7 @@ public class FindGeocache extends javax.swing.JFrame {
     }
     
     
-    public String findUserLocation(String user) {
-        
-         String DBquery = "select CACHERLOCATION from GEOCACHERSTBL where CACHERUSERNAME = '" + user + "'";
-         Statement stmt = null;
-        String location = null;
-        DBConnect connection = new DBConnect();
-                
-        
-                try {
-                stmt = connection.databaseConnect().createStatement();
-                ResultSet rs = stmt.executeQuery(DBquery);
-
-                while (rs.next()) {
-                    location= rs.getString("CACHERLOCATION");
-
-
-                }      
-                  } catch (SQLException e ) {
-                       JOptionPane.showMessageDialog(null, "Please re-enter your username"); 
-
-                    } finally {
-                        if (stmt != null) { try {
-                            stmt.close();
-                            } catch (SQLException ex) {
-                                Logger.getLogger(FindGeocache.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                }
-                    }
-        
-        return location;
-    }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

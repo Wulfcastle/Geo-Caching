@@ -40,7 +40,7 @@ public class Home extends javax.swing.JFrame {
         txaWelcome = new javax.swing.JTextArea();
         btnWelcome = new javax.swing.JButton();
         btnAddGeocache = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnFind = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -84,7 +84,12 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Find Geocache");
+        btnFind.setText("Find Geocache");
+        btnFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFindActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,7 +106,7 @@ public class Home extends javax.swing.JFrame {
                         .addGap(103, 103, 103)
                         .addComponent(btnAddGeocache)
                         .addGap(99, 99, 99)
-                        .addComponent(jButton2)
+                        .addComponent(btnFind)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                         .addComponent(btnProfile)))
                 .addGap(31, 31, 31))
@@ -129,7 +134,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(btnLogout)
                     .addComponent(btnProfile)
                     .addComponent(btnAddGeocache)
-                    .addComponent(jButton2))
+                    .addComponent(btnFind))
                 .addGap(19, 19, 19))
         );
 
@@ -156,6 +161,11 @@ public class Home extends javax.swing.JFrame {
         new AddGeocache().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnAddGeocacheActionPerformed
+
+    private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
+        new FindGeocache().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnFindActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,10 +212,10 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddGeocache;
+    private javax.swing.JButton btnFind;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnProfile;
     private javax.swing.JButton btnWelcome;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
