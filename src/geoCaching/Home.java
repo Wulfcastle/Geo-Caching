@@ -55,6 +55,9 @@ public class Home extends javax.swing.JFrame {
         btnFind.setOpaque(false);
         btnFind.setContentAreaFilled(false);
         btnFind.setBorderPainted(false);
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
@@ -105,6 +108,18 @@ public class Home extends javax.swing.JFrame {
         });
         getContentPane().add(btnFind);
         btnFind.setBounds(520, 560, 180, 70);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home_background.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(680, 180, 50, 210);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home_background.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(290, 190, 50, 210);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/gif/world.gif"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(310, 190, 430, 200);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home_background.png"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -182,7 +197,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnProfile;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
