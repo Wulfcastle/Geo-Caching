@@ -6,11 +6,17 @@
 
 package geoCaching;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Shimal
  */
 public class Home extends javax.swing.JFrame {
+    
+    // Get the size of the screen
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     
         public String ID = "123456";
 
@@ -103,6 +109,7 @@ public class Home extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home_background.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1032, 712);
+        this.setLocation((dim.width-this.getSize().width)/2, (dim.height-this.getSize().height)/2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -6,6 +6,8 @@
 
 package geoCaching;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,6 +20,9 @@ import javax.swing.JOptionPane;
  * @author Shimal
  */
 public class FindGeocache extends javax.swing.JFrame {
+    
+    // Get the size of the screen
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     /**
      * Creates new form FindGeocache
@@ -99,6 +104,7 @@ public class FindGeocache extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/find_background.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 600, 710);
+        this.setLocation((dim.width-this.getSize().width)/2, (dim.height-this.getSize().height)/2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

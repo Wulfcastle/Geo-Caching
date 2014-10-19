@@ -6,6 +6,8 @@
 
 package geoCaching;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,8 +24,11 @@ import javax.swing.JOptionPane;
  * @author Shimal
  */
 public class Registration extends javax.swing.JFrame {
+    
+    // Get the size of the screen
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
-    public String regID = null; // Storing the ID of the latest registrant 
+    
     /**
      * Creates new form Registration
      */
@@ -66,9 +71,9 @@ public class Registration extends javax.swing.JFrame {
         txtArea = new javax.swing.JTextField();
         dropdownGender = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Register");
         setBounds(new java.awt.Rectangle(0, 0, 776, 860));
         setMaximumSize(new java.awt.Dimension(776, 860));
         setMinimumSize(new java.awt.Dimension(776, 860));
@@ -163,10 +168,7 @@ public class Registration extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/register_background.png"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, -90, 760, 1000);
-
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(610, 770, 73, 23);
+        this.setLocation((dim.width-this.getSize().width)/2, (dim.height-this.getSize().height)/2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -225,6 +227,7 @@ public class Registration extends javax.swing.JFrame {
             public void run() {
                 new Registration().setVisible(true);
                 
+                
             }
         });
     }
@@ -260,7 +263,6 @@ public class Registration extends javax.swing.JFrame {
         Random num = new Random(3); // Genearting random 3 digit number
         int last3Digits = num.nextInt(900) + 100;
         String ID = firstLetter + next2Digits + last3Digits + "";
-        regID = ID;
         return ID;
 
     }
@@ -282,7 +284,6 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JComboBox dropdownGender;
     private java.util.List<geoCaching.Geocacherstbl> geocacherstblList;
     private javax.persistence.Query geocacherstblQuery;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

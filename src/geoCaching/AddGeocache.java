@@ -6,6 +6,8 @@
 
 package geoCaching;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,6 +22,9 @@ import javax.swing.JOptionPane;
  * @author Shimal
  */
 public class AddGeocache extends javax.swing.JFrame {
+    
+    // Get the size of the screen
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public String regID = null; // Storing the ID of the latest registrant 
     /**
@@ -138,6 +143,7 @@ public class AddGeocache extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/add_new_background.png"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 810, 860);
+        this.setLocation((dim.width-this.getSize().width)/2, (dim.height-this.getSize().height)/2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

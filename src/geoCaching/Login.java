@@ -6,6 +6,8 @@
 
 package geoCaching;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +18,9 @@ import javax.swing.JOptionPane;
  * @author Shimal
  */
 public class Login extends javax.swing.JFrame {
+    
+    // Get the size of the screen
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     /**
      * Creates new form Login
@@ -97,6 +102,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/login_background.png"))); // NOI18N
         getContentPane().add(jLabel5);
         jLabel5.setBounds(0, -10, 500, 570);
+        this.setLocation((dim.width-this.getSize().width)/2, (dim.height-this.getSize().height)/2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
