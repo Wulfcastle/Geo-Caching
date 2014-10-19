@@ -6,6 +6,7 @@
 
 package geoCaching;
 
+import java.awt.BorderLayout;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -14,7 +15,9 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.TextArea;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -33,6 +36,7 @@ public class Queries {
     public static final String cacherCity = "CACHERCITY";
     public static final String cacherArea = "CACHERAREA";
 
+    
     public static String getCountry() {
         return country;
     }
@@ -84,6 +88,8 @@ public class Queries {
     return new DefaultTableModel(data, columnNames);
 
 }
+    
+   
             
     
     public void findGeocachers(String locationType, String userLocation) {
@@ -98,8 +104,13 @@ public class Queries {
                 stmt = connection.databaseConnect().createStatement();
                 ResultSet results = stmt.executeQuery(DBquery);
 
-                JTable table = new JTable(buildTableModel(results));
-                JOptionPane.showMessageDialog(null, new JScrollPane(table)); 
+                JTable table = new JTable(buildTableModel(results));   
+                JScrollPane scrollPane = new JScrollPane(table);
+                JFrame frame = new JFrame("Results");
+                frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+                frame.setSize(860, 800);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);   
                 
                   } catch (SQLException e ) {
                        JOptionPane.showMessageDialog(null, "There was an error"); 
