@@ -260,8 +260,8 @@ public class Registration extends javax.swing.JFrame {
         int Year = cal.get(Calendar.YEAR); // Getting Year        
         String tempInt = Integer.toString(Year); // Converting int "Year" to String to dlete first to digits
         int next2Digits = Integer.parseInt(Integer.toString(Year).substring(0, 2)); // Deleting first 2 digits from int "Year"        
-        Random num = new Random(3); // Genearting random 3 digit number
-        int last3Digits = num.nextInt(900) + 100;
+        Random num = new Random(); // Genearting random digit number
+        int last3Digits = num.nextInt((999 - 0) + 1) + 0;
         String ID = firstLetter + next2Digits + last3Digits + "";
         return ID;
 

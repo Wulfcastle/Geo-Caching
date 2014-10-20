@@ -201,8 +201,8 @@ public class AddGeocache extends javax.swing.JFrame {
     public String IDgenerator(String country) { // Algorithm to generate cacherID  
         
         String first3Letters = country.substring(0, 3);
-        Random num = new Random(3); // Genearting random 3 digit number
-        int last3Digits = num.nextInt(899) + 100;                
+        Random num = new Random(); // Genearting random 3 digit number
+        int last3Digits = num.nextInt((999 - 0) + 1) + 0;                
         String ID = first3Letters + last3Digits;
         regID = ID;
         return ID;
