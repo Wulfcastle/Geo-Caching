@@ -201,7 +201,6 @@ public class Profile extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(0, 0, 940, 860);
         this.setLocation((dim.width-this.getSize().width)/2, (dim.height-this.getSize().height)/2);
-        data.userProfileData(Login.username);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -136,10 +136,9 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please check your Username/Password again");
         }
         
-        Queries query = new Queries();
+
        
-            
-        JOptionPane.showMessageDialog(null, "Welcome " + username + " with Cacher ID : " + query.getCacherID(username)); 
+
         
     }//GEN-LAST:event_btnLoginActionPerformed
 

@@ -16,9 +16,8 @@ import java.awt.Toolkit;
 public class Home extends javax.swing.JFrame {
     
     // Get the size of the screen
-    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    
-        public String ID = "123456";
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();    
+    Queries query = new Queries(); // Used generate queries to display info in header
 
     /**
      * Creates new form Home
@@ -40,6 +39,7 @@ public class Home extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         welcomeHeader = new javax.swing.JLabel();
+        txtCacherID = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         btnLogout.setOpaque(false);
         btnLogout.setContentAreaFilled(false);
@@ -79,7 +79,14 @@ public class Home extends javax.swing.JFrame {
         welcomeHeader.setText("WELCOME");
         getContentPane().add(welcomeHeader);
         welcomeHeader.setBounds(40, 20, 240, 40);
-        welcomeHeader.setText("WELCOME" + Login.username);
+        welcomeHeader.setText("WELCOME " + Login.username);
+
+        txtCacherID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtCacherID.setForeground(new java.awt.Color(255, 255, 255));
+        txtCacherID.setText("CACHERID");
+        getContentPane().add(txtCacherID);
+        txtCacherID.setBounds(40, 90, 210, 30);
+        txtCacherID.setText("CACHERID: " + query.getCacherID(Login.username));
 
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_logout.png"))); // NOI18N
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +219,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JLabel txtCacherID;
     private javax.swing.JLabel welcomeHeader;
     // End of variables declaration//GEN-END:variables
 }
