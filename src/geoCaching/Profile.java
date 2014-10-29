@@ -24,8 +24,8 @@ public class Profile extends javax.swing.JFrame {
     
     // Get the size of the screen
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    
-    public String ID = "123456";
+    Queries data = new Queries();
+        
 
     /**
      * Creates new form Profile
@@ -46,12 +46,16 @@ public class Profile extends javax.swing.JFrame {
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         txtGender = new javax.swing.JTextField();
-        txtLocation = new javax.swing.JTextField();
-        txtDOB = new com.toedter.calendar.JDateChooser();
+        txtCountry = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
+        txtArea = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        calendarDOB = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
@@ -75,7 +79,9 @@ public class Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtUsername);
-        txtUsername.setBounds(420, 160, 209, 29);
+        txtUsername.setBounds(420, 180, 209, 29);
+        data.userProfileData(Login.username); 
+        txtUsername.setText(data.getUsername());
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +90,7 @@ public class Profile extends javax.swing.JFrame {
         });
         getContentPane().add(txtPassword);
         txtPassword.setBounds(420, 230, 209, 29);
+        txtPassword.setText(data.getPassword());
 
         txtGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,23 +98,50 @@ public class Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtGender);
-        txtGender.setBounds(420, 310, 209, 28);
+        txtGender.setBounds(420, 280, 209, 28);
+        txtGender.setText(data.getGender());
 
-        txtLocation.addActionListener(new java.awt.event.ActionListener() {
+        txtCountry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocationActionPerformed(evt);
+                txtCountryActionPerformed(evt);
             }
         });
-        getContentPane().add(txtLocation);
-        txtLocation.setBounds(420, 390, 209, 28);
-        getContentPane().add(txtDOB);
-        txtDOB.setBounds(420, 490, 209, 28);
+        getContentPane().add(txtCountry);
+        txtCountry.setBounds(420, 430, 210, 30);
+        txtCountry.setText(data.getCachercountry());
+        getContentPane().add(txtCity);
+        txtCity.setBounds(420, 480, 210, 30);
+        txtCity.setText(data.getCachercity());
+        getContentPane().add(txtArea);
+        txtArea.setBounds(420, 530, 210, 30);
+        txtArea.setText(data.getCacherarea());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Update Country");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(190, 430, 120, 30);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Update City");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(190, 480, 100, 30);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Update Area");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(190, 530, 120, 40);
+        getContentPane().add(calendarDOB);
+        calendarDOB.setBounds(420, 380, 209, 28);
+        calendarDOB.setDate(data.getDOB());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Update Username");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(190, 170, 107, 15);
+        jLabel2.setBounds(190, 190, 107, 15);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,19 +153,13 @@ public class Profile extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Update Gender");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(190, 310, 91, 15);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Update Location");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(190, 390, 101, 15);
+        jLabel4.setBounds(190, 290, 91, 15);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Update D.O.B");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(190, 500, 82, 15);
+        jLabel6.setBounds(190, 390, 82, 15);
 
         btnDelete.setText("Delete Profile");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +168,7 @@ public class Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(440, 640, 160, 41);
+        btnDelete.setBounds(430, 700, 160, 41);
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +177,7 @@ public class Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(210, 640, 160, 41);
+        btnUpdate.setBounds(210, 700, 160, 41);
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_back.png"))); // NOI18N
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -167,12 +195,13 @@ public class Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnPopulate);
-        btnPopulate.setBounds(210, 700, 387, 54);
+        btnPopulate.setBounds(210, 760, 387, 40);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/profile_backgrounds.png"))); // NOI18N
         getContentPane().add(jLabel7);
         jLabel7.setBounds(0, 0, 940, 860);
         this.setLocation((dim.width-this.getSize().width)/2, (dim.height-this.getSize().height)/2);
+        data.userProfileData(Login.username);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -188,10 +217,6 @@ public class Profile extends javax.swing.JFrame {
     private void txtGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGenderActionPerformed
-
-    private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocationActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         new Home().setVisible(true);
@@ -214,13 +239,13 @@ public class Profile extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnPopulateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPopulateActionPerformed
-        Geocacherstbl currentttser = GeoCachingPUEntityManager.find(Geocacherstbl.class, "S20834");
-        
-        txtUsername.setText(currentttser.getCacherusername());
-        txtPassword.setText(currentttser.getCacherpassword());
-        txtGender.setText(currentttser.getCachergender());
+                
 
     }//GEN-LAST:event_btnPopulateActionPerformed
+
+    private void txtCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCountryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCountryActionPerformed
 
 
     
@@ -257,6 +282,7 @@ public class Profile extends javax.swing.JFrame {
             public void run() {
                 new Profile().setVisible(true);
                 
+                
             }
         });
         
@@ -264,11 +290,11 @@ public class Profile extends javax.swing.JFrame {
     }
     
     private void deleteUser() throws SQLException {
-       
-        DBConnect connection = new DBConnect();        
+
+        Queries user = new Queries();
         
         // Deleting User        
-        Geocacherstbl deleteUser = GeoCachingPUEntityManager.find(Geocacherstbl.class, 1); // TO-DO Create method to find cacherID
+        Geocacherstbl deleteUser = GeoCachingPUEntityManager.find(Geocacherstbl.class, user.getCacherID(Login.username)); 
         GeoCachingPUEntityManager.getTransaction().begin();
         GeoCachingPUEntityManager.remove(deleteUser);
         GeoCachingPUEntityManager.getTransaction().commit();
@@ -285,15 +311,19 @@ public class Profile extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnPopulate;
     private javax.swing.JButton btnUpdate;
+    private com.toedter.calendar.JDateChooser calendarDOB;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private com.toedter.calendar.JDateChooser txtDOB;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtArea;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtGender;
-    private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables

@@ -111,17 +111,17 @@ public class FindGeocache extends javax.swing.JFrame {
 
     private void btnCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityActionPerformed
         Queries query = new Queries();
-        query.findGeocachers(query.getCity(), query.findUserLocation("Shimal", query.getCacherCity()));
+        query.findGeocachers(query.getCity(), query.findUserLocation(Login.username, query.getCacherCity()));
     }//GEN-LAST:event_btnCityActionPerformed
 
     private void btnAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaActionPerformed
         Queries query = new Queries();
-        query.findGeocachers(query.getArea(), query.findUserLocation("Shimal", query.getCacherArea()));
+        query.findGeocachers(query.getArea(), query.findUserLocation(Login.username, query.getCacherArea()));
     }//GEN-LAST:event_btnAreaActionPerformed
 
     private void btnCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCountryActionPerformed
         Queries query = new Queries();
-        query.findGeocachers(query.getCountry(), query.findUserLocation("Shimal", query.getCacherCountry()));
+        query.findGeocachers(query.getCountry(), query.findUserLocation(Login.username, query.getCacherCountry()));
     }//GEN-LAST:event_btnCountryActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

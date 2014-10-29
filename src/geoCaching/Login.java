@@ -21,6 +21,11 @@ public class Login extends javax.swing.JFrame {
     
     // Get the size of the screen
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    public static String username = "";
+
+    public static void setUsername(String username) {
+        Login.username = username;
+    }
 
     /**
      * Creates new form Login
@@ -118,6 +123,8 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         
+        username = txtUsername.getText();
+        
         try {
             DBConnect connection = new DBConnect();
             connection.checkLogin(txtUsername.getText(), txtPassword.getText());
@@ -128,9 +135,15 @@ public class Login extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Please check your Username/Password again");
         }
-                
+        
+        Queries query = new Queries();
+       
+            
+        JOptionPane.showMessageDialog(null, "Welcome " + username + " with Cacher ID : " + query.getCacherID(username)); 
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         new Registration().setVisible(true);
         this.setVisible(false);

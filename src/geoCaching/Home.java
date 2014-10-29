@@ -39,6 +39,7 @@ public class Home extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        welcomeHeader = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         btnLogout.setOpaque(false);
         btnLogout.setContentAreaFilled(false);
@@ -72,6 +73,13 @@ public class Home extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1047, 752));
         setMinimumSize(new java.awt.Dimension(1047, 752));
         getContentPane().setLayout(null);
+
+        welcomeHeader.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        welcomeHeader.setForeground(new java.awt.Color(255, 255, 255));
+        welcomeHeader.setText("WELCOME");
+        getContentPane().add(welcomeHeader);
+        welcomeHeader.setBounds(40, 20, 240, 40);
+        welcomeHeader.setText("WELCOME" + Login.username);
 
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buttons/btn_logout.png"))); // NOI18N
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -204,5 +212,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JLabel welcomeHeader;
     // End of variables declaration//GEN-END:variables
 }

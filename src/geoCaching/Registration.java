@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
 public class Registration extends javax.swing.JFrame {
     
     // Get the size of the screen
-    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();    
 
     
     /**
@@ -174,11 +174,11 @@ public class Registration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewUserActionPerformed
-        register(btnDate.getDate(), txtUsername.getText(), txtPassword.getText(), txtCountry.getText(), txtCity.getText(), txtArea.getText(), getGender(dropdownGender));     
-                
- 
+        register(btnDate.getDate(), txtUsername.getText(), txtPassword.getText(), txtCountry.getText(), txtCity.getText(), txtArea.getText(), getGender(dropdownGender));            
+        Login.setUsername(txtUsername.getText()); // Logging user in
         new Home().setVisible(true); 
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnAddNewUserActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

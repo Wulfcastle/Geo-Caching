@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,7 +36,58 @@ public class Queries {
     public static final String cacherCountry = "CACHERCOUNTRY";
     public static final String cacherCity = "CACHERCITY";
     public static final String cacherArea = "CACHERAREA";
+    public static final String cacherID = "CACHERID";
 
+    private String ID;
+    private Date DOB;
+    private String Cacherusername;
+    private String password;
+    private String cachercountry;
+    private String cachercity;
+    private String cacherarea;
+    private String gender;
+    
+    
+  
+    public static String getCacherID() {
+        return cacherID;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public Date getDOB() {
+        return DOB;
+    }
+
+    public String getUsername() {
+        return Cacherusername;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getCachercountry() {
+        return cachercountry;
+    }
+
+    public String getCachercity() {
+        return cachercity;
+    }
+
+    public String getCacherarea() {
+        return cacherarea;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+    
+    
+
+    
     
     public static String getCountry() {
         return country;
@@ -158,6 +210,81 @@ public class Queries {
                     }
         
         return location;
+    }
+    
+    public String getCacherID(String username) {
+        String ID = null;
+        String DBquery = "select " + cacherID + " from GEOCACHERSTBL where CACHERUSERNAME = '" + username + "'";
+        Statement stmt = null;
+        DBConnect connection = new DBConnect();
+        
+        try {
+                stmt = connection.databaseConnect().createStatement();
+                ResultSet rs = stmt.executeQuery(DBquery);
+
+                while (rs.next()) {
+                    ID = rs.getString(cacherID);
+
+
+                }      
+                  } catch (SQLException e ) {
+                       JOptionPane.showMessageDialog(null, "Error connectiong to database"); 
+
+                    } finally {
+                        if (stmt != null) { try {
+                            stmt.close();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(FindGeocache.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                }
+                    }
+        
+        return ID;
+    }
+    
+    public void userProfileData(String username) {
+        String DBquery = "select * from GEOCACHERSTBL where CACHERUSERNAME = '" + username + "'";
+        Statement stmt = null;
+        DBConnect connection = new DBConnect();
+
+        
+        
+        try {
+                stmt = connection.databaseConnect().createStatement();
+                ResultSet rs = stmt.executeQuery(DBquery);
+
+                while (rs.next()) {
+                    
+                    
+                    ID = rs.getString(cacherID);
+                    DOB = rs.getDate("CACHERDOB");
+                    Cacherusername = rs.getString("CACHERUSERNAME");
+                    password = rs.getString("CACHERPASSWORD");
+                    cachercountry = rs.getString(cacherCountry);
+                    cachercity = rs.getString(cacherCity);
+                    cacherarea = rs.getString(cacherArea);
+                    gender =  rs.getString("CACHERGENDER");                  
+                    
+                    
+
+
+                }      
+                  } catch (SQLException e ) {
+                       JOptionPane.showMessageDialog(null, "Error connectiong to database"); 
+
+                    } finally {
+                        if (stmt != null) { try {
+                            stmt.close();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(FindGeocache.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                }
+                    }
+        
+      
+        
+        
+        
     }
     
        
